@@ -1,3 +1,16 @@
+#if _MSC_VER > 1800
+#include <stdio.h>
+#pragma comment(lib, "legacy_stdio_definitions.lib")
+
+FILE _iob[] = { *stdin, *stdout, *stderr };
+
+extern "C" FILE * __cdecl __iob_func(void)
+{
+	return _iob;
+}
+
+#endif
+
 #include "Application.h"
 
 #include <chrono>
