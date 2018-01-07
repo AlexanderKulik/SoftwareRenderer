@@ -15,5 +15,6 @@ public:
 	Geometry* CreatePlane();
 	Geometry* CreateCube();
 	Geometry* CreateSphere();
+	Geometry* CreateTriangle();
 };
 

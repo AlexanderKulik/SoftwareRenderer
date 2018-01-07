@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,13 +19,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -41,11 +41,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\Users\Admin\Documents\Visual Studio 2013\Projects\SoftwareRender\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\libs\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>C:\Users\Admin\Documents\Visual Studio 2013\Projects\SoftwareRender\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\libs\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -54,7 +54,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Admin\Documents\Visual Studio 2013\Projects\SoftwareRender\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\libs\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -71,7 +71,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Admin\Documents\Visual Studio 2013\Projects\SoftwareRender\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\libs\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,31 +82,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Camera\Camera.cpp" />
+    <ClCompile Include="..\src\Geometry\Texture.cpp" />
+    <ClCompile Include="..\src\Math\AABB.cpp" />
+    <ClCompile Include="..\src\Math\AABB2.cpp" />
+    <ClCompile Include="..\src\Math\Math.cpp" />
+    <ClCompile Include="..\src\Math\Matrix.cpp" />
+    <ClCompile Include="..\src\Math\Matrix3.cpp" />
+    <ClCompile Include="..\src\Math\Plane.cpp" />
+    <ClCompile Include="..\src\Math\Quat.cpp" />
+    <ClCompile Include="..\src\Math\Ray.cpp" />
+    <ClCompile Include="..\src\Math\Vector4.cpp" />
+    <ClCompile Include="..\src\Render\Renderer.cpp" />
+    <ClCompile Include="..\src\Render\SoftwareRenderer.cpp" />
+    <ClCompile Include="..\src\Shaders\ShaderSolid.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Driver.cpp" />
-    <ClCompile Include="DriverSoftware.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="GeometryManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mat.cpp" />
-    <ClCompile Include="math.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="RenderNode.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Camera\Camera.h" />
+    <ClInclude Include="..\src\Geometry\Color.h" />
+    <ClInclude Include="..\src\Geometry\Shader.h" />
+    <ClInclude Include="..\src\Geometry\Texture.h" />
+    <ClInclude Include="..\src\Geometry\Vertex.h" />
+    <ClInclude Include="..\src\Math\AABB.h" />
+    <ClInclude Include="..\src\Math\AABB2.h" />
+    <ClInclude Include="..\src\Math\Math.h" />
+    <ClInclude Include="..\src\Math\Matrix.h" />
+    <ClInclude Include="..\src\Math\Matrix3.h" />
+    <ClInclude Include="..\src\Math\Plane.h" />
+    <ClInclude Include="..\src\Math\Quat.h" />
+    <ClInclude Include="..\src\Math\Ray.h" />
+    <ClInclude Include="..\src\Math\Vector2.h" />
+    <ClInclude Include="..\src\Math\Vector3.h" />
+    <ClInclude Include="..\src\Math\Vector4.h" />
+    <ClInclude Include="..\src\Render\Renderer.h" />
+    <ClInclude Include="..\src\Render\SoftwareRenderer.h" />
+    <ClInclude Include="..\src\Shaders\ShaderSolid.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Driver.h" />
-    <ClInclude Include="DriverSoftware.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="GeometryManager.h" />
-    <ClInclude Include="mat.h" />
-    <ClInclude Include="math.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="RenderNode.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="vec3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

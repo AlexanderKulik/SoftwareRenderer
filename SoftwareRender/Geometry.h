@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "vec3.h"
+#include "Geometry/Vertex.h"
 
 class GeometryManager;
 
@@ -9,7 +9,7 @@ class Geometry
 {
 	friend class GeometryManager;
 
-	std::vector<math::vec3> m_vertices;
+	std::vector<Vertex> m_vertices;
 	std::vector<int> m_indices; 
 
 public:
@@ -17,6 +17,7 @@ public:
 	Geometry();
 	~Geometry();
 
+	void Render();
 
 };
 
